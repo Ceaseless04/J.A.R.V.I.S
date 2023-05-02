@@ -2,8 +2,6 @@
 import requests
 import wikipedia
 import pywhatkit as kit
-from email.message import EmailMessage
-import smtplib
 from decouple import config
 
 # finding my own ip address
@@ -44,9 +42,9 @@ OPEN_WEATHER_APP_ID = config("OPEN_WEATHER_APP_ID")
 def get_weather_report(city):
     res = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={OPEN_WEATHER_APP_ID}&units=metric").json()
     weather = res["weather"][0]["main"]
-    temp = res["weather"][0]["temp"]
-    feels_like = res["main"][0]["feels_like"]
-    return weather, f"{temp} C", f"{feels_like} C"
+    temperature = res["weather"]["temp"]
+    feels_like = res["main"]["feels_like"]
+    return weather, f"{temperature} C", f"{feels_like} C"
 
 # trending movies
 TMDB_API_KEY = config("TMDB_API_KEY")

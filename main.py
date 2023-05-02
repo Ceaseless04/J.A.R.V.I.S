@@ -39,7 +39,7 @@ if __name__ == '__main__':
             video = take_user_input().lower()
             play_youtube(video)
         elif 'joke' in query:
-            speak(f"Hope you like this one sir")
+            speak(f"Hope you like this one")
             joke = get_random_joke()
             speak(joke)
             speak("For your convenience, I am printing it on the screen sir.")
@@ -63,8 +63,8 @@ if __name__ == '__main__':
             ip_address = find_my_ip()
             city = requests.get(f"https://ipapi.co/{ip_address}/city/").text
             speak(f"Getting weather report for your city {city}")
-            weather, temp, feels_like = get_weather_report(city)
-            speak(f"The current temperature is {temp}, but it feels like {feels_like}")
+            weather, temperature, feels_like = get_weather_report(city)
+            speak(f"The current temperature is {temperature}, but it feels like {feels_like}")
             speak(f"Also, the weather report talks about {weather}")
             speak("For your convenience, I am printing it on the screen sir.")
-            print(f"Description: {weather}\nTemperature: {temp}\nFeels Like: {feels_like}")
+            print(f"Description: {weather}\nTemperature: {temperature}\nFeels Like: {feels_like}")
